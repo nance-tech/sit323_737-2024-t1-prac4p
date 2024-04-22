@@ -96,6 +96,6 @@ app.get("/divide/:num1/:num2", (req, res) => {
   return res.status(200).json({ result });
 });
 
-app.listen(3000, () => {
-  logger.info("Microservice running at http://localhost:3000");
+app.listen(4000, () => {
+  logger.info("Microservice running at http://localhost:4000");
 });
