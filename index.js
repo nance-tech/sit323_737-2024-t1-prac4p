@@ -13,11 +13,13 @@ app.get("/add/:num1/:num2", (req, res) => {
   num1 = Number(num1);
   num2 = Number(num2);
   let errorMsg = undefined;
-  errorMsg = isNaN(num1)
-    ? "Num1 Must be a Number"
-    : isNaN(num2)
-    ? "Num2 Must be a Number"
-    : undefined;
+  
+  if (isNaN(num1)) {
+    errorMsg = "Num1 Must be a Number";
+  }
+  if (isNaN(num2)) {
+    errorMsg = "Num2 Must be a Number";
+  }
 
   if (errorMsg) {
     logger.error(`An error has been encountered: ${errorMsg}`);
@@ -36,11 +38,13 @@ app.get("/subtract/:num1/:num2", (req, res) => {
   num1 = Number(num1);
   num2 = Number(num2);
   let errorMsg = undefined;
-  errorMsg = isNaN(num1)
-    ? "Num1 Must be a Number"
-    : isNaN(num2)
-    ? "Num2 Must be a Number"
-    : undefined;
+  
+  if (isNaN(num1)) {
+    errorMsg = "Num1 Must be a Number";
+  }
+  if (isNaN(num2)) {
+    errorMsg = "Num2 Must be a Number";
+  }
 
   if (errorMsg) {
     logger.error(`An error has been encountered: ${errorMsg}`);
@@ -59,12 +63,13 @@ app.get("/multiply/:num1/:num2", (req, res) => {
   num1 = Number(num1);
   num2 = Number(num2);
   let errorMsg = undefined;
-  errorMsg = isNaN(num1)
-    ? "Num1 Must be a Number"
-    : isNaN(num2)
-    ? "Num2 Must be a Number"
-    : undefined;
-
+ 
+  if (isNaN(num1)) {
+    errorMsg = "Num1 Must be a Number";
+  }
+  if (isNaN(num2)) {
+    errorMsg = "Num2 Must be a Number";
+  }
   if (errorMsg) {
     logger.error(`An error has been encountered: ${errorMsg}`);
     return res.status(400).json({ error: errorMsg });
@@ -80,16 +85,19 @@ app.get("/divide/:num1/:num2", (req, res) => {
   num1 = Number(num1);
   num2 = Number(num2);
   let errorMsg = undefined;
-  errorMsg = isNaN(num1)
-    ? "Num1 Must be a Number"
-    : isNaN(num2)
-    ? "Num2 Must be a Number"
-    : num2 == 0
-    ? "You cannot divide a number by Zero"
-    : undefined;
+
+  if (isNaN(num1)) {
+    errorMsg = "Num1 Must be a Number";
+  }
+  if (isNaN(num2)) {
+    errorMsg = "Num2 Must be a Number";
+  }
+  if (num2 === 0) {
+    errorMsg = "You cannot divide a number by Zero";
+  }
 
   if (errorMsg) {
-    logger.error(`An error has benn encountered: ${errorMsg}`);
+    logger.error(`An error has been encountered: ${errorMsg}`);
     return res.status(400).json({ error: errorMsg });
   }
   const result = Number(num1) / Number(num2);
